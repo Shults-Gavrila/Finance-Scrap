@@ -1,0 +1,103 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<link href="~/Content/Forex.css" rel="stylesheet" type="text/css" />
+@{
+    var summary_list = ViewBag.data_summery;
+    <div style="width:830px" class="table table-hover">
+        @{ 
+            for (int i = 0; i < summary_list.Count; i++)
+            {
+                <div class="summary-row" >
+                    <div class="pull-left" >
+                        <div class="summary-flag @summary_list[i].cTitle"></div>
+                        <p class="text-center" style="font-size:xx-large;" ><b>@summary_list[i].cTitle</b></p>
+                    </div>
+                    <div class="pull-left summary-cell" >
+                        <p class ="text-center font-x-large" ><b>5 Min</b></p>
+                        
+                        @{
+                            if (summary_list[i].s5 == "Neutral")
+                            {
+                                <p style="line-height:100px; font-size:x-large" class="text-center"><b>Neutral</b></p>
+                            }
+                            else if (summary_list[i].s5 == "Strong Buy" || summary_list[i].s5 == "Strong Sell")
+                            {
+                                <div class="@summary_list[i].s5 summary-img"></div>
+                                <p class="text-center font-x-large"><b> 85%</b> </p>
+                            }
+                            else
+                            {
+                                <div class="@summary_list[i].s5 summary-img"></div>
+                                <p class="text-center font-x-large"> 60% </p>
+                            }
+                        }
+                    </div>
+                    <div class="pull-left summary-cell">
+                        <p class="text-center font-x-large"><b>15 Min</b></p>
+                        
+                        @{
+                            if (summary_list[i].s15 == "Neutral")
+                            {
+                                <p style="line-height:100px; font-size:x-large" class="text-center"><b>Neutral</b></p>
+                            }
+                            else if (summary_list[i].s15 == "Strong Buy" || summary_list[i].s15 == "Strong Sell")
+                            {
+                                <div class="@summary_list[i].s15 summary-img"></div>
+                                <p class="text-center font-x-large"><b> 85%</b> </p>
+                            }
+                            else
+                            {
+                                <div class="@summary_list[i].s15 summary-img"></div>
+                                <p class="text-center font-x-large"><b> 60%</b> </p>
+                            }
+                        }
+                    </div>
+                    <div class="pull-left summary-cell">
+                        <p class="text-center font-x-large"><b>Hourly</b></p>
+                        
+                        @{
+                            if (summary_list[i].sHourly == "Neutral")
+                            {
+                                <p style="line-height:100px; font-size:x-large" class="text-center"><b>Neutral</b></p>
+                            }
+                            else if (summary_list[i].sHourly == "Strong Buy" || summary_list[i].sHourly == "Strong Sell")
+                            {
+                                <div class="@summary_list[i].sHourly summary-img"></div>
+                                <p class="text-center font-x-large"><b> 85%</b> </p>
+                            }
+                            else
+                            {
+                                <div class="@summary_list[i].sHourly summary-img"></div>
+                                <p class="text-center font-x-large"><b> 60%</b> </p>
+                            }
+                        }
+                    </div>
+                    <div class="pull-right summary-cell no-border">
+                        <p class="text-center font-x-large"><b>Daily</b></p>
+                        
+                        @{
+                            if (summary_list[i].sDaily == "Neutral")
+                            {
+                                <p style="line-height:100px; font-size:x-large" class="text-center"><b>Neutral</b></p>
+                            }
+                            else if (summary_list[i].sDaily == "Strong Buy" || summary_list[i].sDaily == "Strong Sell")
+                            {
+                                <div class="@summary_list[i].sDaily summary-img"></div>
+                                <p class="text-center font-x-large"><b> 85%</b> </p>
+                            }
+                            else
+                            {
+                                <div class="@summary_list[i].sDaily summary-img"></div>
+                                <p class="text-center font-x-large"><b> 60%</b> </p>
+                            }
+                        }
+
+                    </div>
+                </div>
+
+            }
+        }
+    </div>
+}
